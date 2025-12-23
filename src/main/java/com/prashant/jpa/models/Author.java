@@ -3,6 +3,7 @@ package com.prashant.jpa.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,17 +12,13 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
-@Table(name = "AUTHOR_TBL")
 public class Author {
 
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(
-            name = "f_name",
-            length = 35
-    )
     private String firstName;
     private String lastName;
 
@@ -31,10 +28,6 @@ public class Author {
     )
     private String email;
     private Integer age;
-    @Column(
-            updatable = false,
-            nullable = false
-    )
     private LocalDateTime createdAt;
     @Column(
             insertable = false
